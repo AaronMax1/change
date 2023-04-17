@@ -1,32 +1,49 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <div class="header"></div>
+    <div class="mainF">
+      <div class="main">
+        <router-view></router-view>
+      </div>
+    </div>
+    <div class="footer"></div>
   </div>
 </template>
 
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.mainF {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.main {
+  width: 70vw;
+  height: 80vh;
+  box-sizing: border-box;
+  padding: 40px 0;
+  background-image: url("./assets/mainBgc.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  min-width: 300px;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+#app {
+  position: relative;
+  background-image: url("./assets/bgc.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+#app,
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
 }
 </style>
