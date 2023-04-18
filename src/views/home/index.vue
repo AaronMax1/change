@@ -1,13 +1,13 @@
 <template>
   <div class="home">
-    <div><img src="./images/Koala..png" style="width: 10vw" /></div>
+    <div><img src="../../assets/Koala..png" style="width: 10vw" /></div>
     <div style="margin-top: 30px">
       <div style="display: flex; justify-content: space-between; width: 100%">
         <div style="display: flex; align-items: center; width: 50%">
           <div>
             <div>
               <img
-                src="./images/Koala Intelligence Agency.png"
+                src="../../assets/Koala Intelligence Agency.png"
                 style="width: 17vw"
               />
             </div>
@@ -19,13 +19,13 @@
               <div>Their mission is to protect the world from evil.</div>
             </div>
             <div style="margin-top: 40px">
-              <img src="./images/btn-round.png" style="width: 10vw" />
+              <img src="../../assets/btn-round.png" style="width: 10vw" />
             </div>
           </div>
         </div>
-        <div style="width: 50%;display:flex;justify-content:center">
+        <div style="width: 50%; display: flex; justify-content: center">
           <div>
-            <img src="./images/Koala.png" style="width: 25vw" />
+            <img src="../../assets/Koala.png" style="width: 25vw" />
           </div>
         </div>
       </div>
