@@ -1,5 +1,18 @@
 <template>
   <div id="app">
+    <div>
+      <el-drawer
+        size="40vw"
+        title="我是标题"
+        :visible.sync="drawer"
+        direction="ltr"
+        :with-header="false"
+        custom-class="drawer"
+      >
+        <div class="menuItem" @click="handlePush">HOME</div>
+        <div class="menuItem" @click="handlePush">PLAY</div>
+      </el-drawer>
+    </div>
     <div class="header">
       <div
         style="
@@ -8,8 +21,27 @@
           height: 100%;
           display: flex;
           align-items: center;
+          min-width: 300px;
         "
       >
+        <div class="menuActive" @click="showMenu">
+          <svg
+            t="1681866668816"
+            class="icon"
+            viewBox="0 0 1024 1024"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            p-id="2605"
+            width="32"
+            height="32"
+          >
+            <path
+              d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zM904 784H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zM904 472H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"
+              p-id="2606"
+              fill="#ffffff"
+            ></path>
+          </svg>
+        </div>
         <div class="hederS">
           <div
             style="padding: 20px"
@@ -49,19 +81,41 @@
 export default {
   data() {
     return {
+      drawer: false,
       cutNav: 1,
     };
+  },
+  methods: {
+    handlePush() {
+      this.drawer = false;
+    },
+    showMenu() {
+      this.drawer = true;
+    },
   },
 };
 </script>
 
 <style lang="less">
-@media (max-width: 800px) {
-  .btnS2 {
-    display: none;
-  }
+.menuItem:hover {
+  background-color: rgba(6, 12, 9, 0.7);
+}
+.menuItem {
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+}
+.drawer {
+  background-color: rgba(20, 42, 29, 1);
+}
+.menuActive {
+  display: none;
 }
 .header {
+  padding-top: 1.2vw;
   font-size: 1vw;
   height: 61px;
   position: absolute;
@@ -125,5 +179,21 @@ body {
   margin: 0;
   width: 100%;
   height: 100vh;
+}
+
+@media (max-width: 800px) {
+  .btnS2 {
+    display: none;
+  }
+  .menuActive {
+    display: block;
+  }
+  .hederS {
+    display: none !important;
+  }
+  .primaryButton .el-button--primary {
+    padding: 4vw 3vw !important;
+    font-size: 14px !important;
+  }
 }
 </style>

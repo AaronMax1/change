@@ -1,12 +1,12 @@
 <template>
   <div class="primaryButton">
-    <el-button type="primary" round>{{ name }}</el-button>
+    <el-button type="primary" :icon="icon" round>{{ name }}</el-button>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["name"],
+  props: ["name", "icon"],
 };
 </script>
 
