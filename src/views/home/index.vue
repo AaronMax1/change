@@ -40,7 +40,7 @@ export default {};
 <style scoped lang="less">
 .home {
   display: block;
-  padding: 0 3%;
+  padding: 40px 3%;
 }
 .txt {
   color: rgb(193, 204, 199);

@@ -9,8 +9,20 @@
         :with-header="false"
         custom-class="drawer"
       >
-        <div class="menuItem" @click="handlePush">HOME</div>
-        <div class="menuItem" @click="handlePush">PLAY</div>
+        <div
+          class="menuItem"
+          :class="{ act: cutNavMobile == 1 }"
+          @click="handlePushHome"
+        >
+          HOME
+        </div>
+        <div
+          class="menuItem"
+          :class="{ act: cutNavMobile == 2 }"
+          @click="handlePushPlay"
+        >
+          PLAY
+        </div>
       </el-drawer>
     </div>
     <div class="header">
@@ -46,14 +58,14 @@
           <div
             style="padding: 20px"
             :class="{ hederSh: cutNav == 1, headerSs: true }"
-            @click="cutNav = 1"
+            @click="handlePushHome"
           >
             HOME
           </div>
           <div
             style="padding: 20px"
             :class="{ hederSh: cutNav == 2, headerSs: true }"
-            @click="cutNav = 2"
+            @click="handlePushPlay"
           >
             PLAY
           </div>
@@ -83,11 +95,21 @@ export default {
     return {
       drawer: false,
       cutNav: 1,
+      cutNavMobile: 1,
     };
   },
   methods: {
-    handlePush() {
+    handlePushHome() {
+      this.cutNavMobile = 1;
+      this.cutNav = 1;
       this.drawer = false;
+      this.$router.push("/");
+    },
+    handlePushPlay() {
+      this.cutNavMobile = 2;
+      this.cutNav = 2;
+      this.drawer = false;
+      this.$router.push("/play");
     },
     showMenu() {
       this.drawer = true;
@@ -98,6 +120,10 @@ export default {
 
 <style lang="less">
 .menuItem:hover {
+  background-color: rgba(6, 12, 9, 0.7);
+}
+.act {
+  color: rgba(47, 141, 80, 0.7) !important;
   background-color: rgba(6, 12, 9, 0.7);
 }
 .menuItem {
@@ -156,7 +182,6 @@ export default {
   height: 80vh;
   overflow: hidden;
   box-sizing: border-box;
-  padding: 40px 0;
   background-image: url("./assets/mainBgc.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
